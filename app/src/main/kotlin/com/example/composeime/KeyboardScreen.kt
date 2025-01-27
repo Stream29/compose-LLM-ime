@@ -25,12 +25,12 @@ fun KeyboardScreen() {
         arrayOf("Z", "X", "C", "V", "B", "N", "M")
     )
     Column(
-        modifier = Modifier
-            .background(Color(0xFF9575CD))
-            .fillMaxWidth()
+        modifier = Modifier.background(Color(0xFF9575CD)).fillMaxWidth()
     ) {
         keysMatrix.forEach { row ->
-            FixedHeightBox(modifier = Modifier.fillMaxWidth(), height = 56.dp) {
+            FixedHeightBox(
+                modifier = Modifier.fillMaxWidth(), height = 56.dp
+            ) {
                 Row(Modifier) {
                     row.forEach { key ->
                         KeyboardKey(keyboardKey = key, modifier = Modifier.weight(1f))
@@ -43,7 +43,10 @@ fun KeyboardScreen() {
 
 @Composable
 fun FixedHeightBox(modifier: Modifier, height: Dp, content: @Composable () -> Unit) {
-    Layout(modifier = modifier, content = content) { measurables, constraints ->
+    Layout(
+        modifier = modifier,
+        content = content
+    ) { measurables, constraints ->
         val placeables = measurables.map { measurable ->
             measurable.measure(constraints)
         }
@@ -66,9 +69,8 @@ fun KeyboardKey(
     val ctx = LocalContext.current
     Box(modifier = modifier.fillMaxHeight(), contentAlignment = Alignment.BottomCenter) {
         Text(
-            keyboardKey,
-            Modifier
-                .fillMaxWidth()
+            text = keyboardKey,
+            modifier = Modifier.fillMaxWidth()
                 .padding(2.dp)
                 .border(1.dp, Color.Black)
                 .clickable(interactionSource = interactionSource, indication = null) {
@@ -89,8 +91,8 @@ fun KeyboardKey(
         )
         if (pressed.value) {
             Text(
-                keyboardKey,
-                Modifier
+                text = keyboardKey,
+                modifier = Modifier
                     .fillMaxWidth()
                     .border(1.dp, Color.Black)
                     .background(Color.White)

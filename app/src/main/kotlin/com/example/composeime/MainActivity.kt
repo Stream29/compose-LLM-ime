@@ -38,26 +38,30 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun Options() {
     Column(
-        Modifier
-            .padding(16.dp)
-            .fillMaxWidth()
+        Modifier.padding(16.dp).fillMaxWidth()
     ) {
         val ctx = LocalContext.current
         Text(text = "Compose Keyboard")
         val (text, setValue) = remember { mutableStateOf(TextFieldValue("Try here")) }
         Spacer(modifier = Modifier.height(16.dp))
-        Button(modifier = Modifier.fillMaxWidth(), onClick = {
-            ctx.startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS))
-        }) {
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { ctx.startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)) }
+        ) {
             Text(text = "Enable IME")
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Button(modifier = Modifier.fillMaxWidth(), onClick = {
-            inputMethodManager.showInputMethodPicker()
-        }) {
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { inputMethodManager.showInputMethodPicker() }
+        ) {
             Text(text = "Select IME")
         }
         Spacer(modifier = Modifier.height(16.dp))
-        TextField(value = text, onValueChange = setValue, modifier = Modifier.fillMaxWidth())
+        TextField(
+            value = text,
+            onValueChange = setValue,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
