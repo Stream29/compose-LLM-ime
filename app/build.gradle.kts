@@ -52,8 +52,10 @@ android {
 dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.compose.ui)
-    implementation(libs.compose.material)
     implementation(libs.compose.ui.tooling)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.material3.window.size)
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.service)
     implementation(libs.androidx.lifecycle.runtime.ktx)

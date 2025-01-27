@@ -1,44 +1,30 @@
 package com.example.composeime.view.constant
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.Typography
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorPalette = darkColors(
-    primary = purple200,
-    primaryVariant = purple700,
-    secondary = teal200
-)
 
-private val LightColorPalette = lightColors(
-    primary = purple500,
-    primaryVariant = purple700,
-    secondary = teal200
-
-        /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
-)
-
+@RequiresApi(Build.VERSION_CODES.S)
 @Composable
 fun ComposeIMETheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
+    val colorScheme = if (darkTheme) {
+        dynamicLightColorScheme(LocalContext.current)
     } else {
-        LightColorPalette
+        dynamicDarkColorScheme(LocalContext.current)
     }
-
     MaterialTheme(
-        colors = colors,
-        typography = typography,
-        shapes = shapes,
+        colorScheme = colorScheme,
+        typography = Typography(),
+        shapes = Shapes(),
         content = content
     )
+
 }
