@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.example.composeime.view.constant.ComposeIMETheme
+import com.example.composeime.view.ComposeIMETheme
 import splitties.systemservices.inputMethodManager
 
 @Composable
