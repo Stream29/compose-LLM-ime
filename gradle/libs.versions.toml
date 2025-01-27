@@ -1,0 +1,46 @@
+[versions]
+kotlin = "2.1.0"
+agp = "8.7.3"
+compose = "1.7.6"
+android-compileSdk = "35"
+android-minSdk = "24"
+android-targetSdk = "35"
+kotlinx-coroutines = "1.10.1"
+androidx-activity-compose = "1.10.0"
+androidx-appcompat = "1.7.0"
+androidx-lifecycle = "2.8.7"
+langchain4j = "0.35.0"
+langchain4kt = "1.8.2"
+kotlinx-serialization = "2.0.20"
+kaml = "0.66.0"
+splitties-systemservices = "3.0.0"
+
+[libraries]
+langchain4j-dashscope = { module = "dev.langchain4j:langchain4j-dashscope", version.ref = "langchain4j" }
+langchain4kt-core = { module = "io.github.stream29:langchain4kt-core", version.ref = "langchain4kt" }
+langchain4kt-api-langchain4j = { module = "io.github.stream29:langchain4kt-api-langchain4j", version.ref = "langchain4kt" }
+langchain4kt-streaming = { module = "io.github.stream29:langchain4kt-streaming", version.ref = "langchain4kt" }
+
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+
+kaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kaml" }
+
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "androidx-lifecycle" }
+
+splitties-systemservices = { module = "com.louiscad.splitties:splitties-systemservices", version.ref = "splitties-systemservices" }
+splitties-views = { module = "com.louiscad.splitties:splitties-views", version.ref = "splitties-systemservices" }
+
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+
+[bundles]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinx-serialization" }

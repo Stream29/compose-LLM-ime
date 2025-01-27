@@ -2,9 +2,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 
 plugins {
-    id("com.android.application") version "8.7.3"
-    kotlin("android") version "2.1.0"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.1.0"
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -14,12 +15,12 @@ kotlin {
 }
 
 android {
-    compileSdk = 35
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.example.composeime"
-        minSdk = 21
-        targetSdk = 35
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0.0"
 
@@ -49,16 +50,16 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.compose.ui:ui:1.7.6")
-    implementation("androidx.compose.material:material:1.7.6")
-    implementation("androidx.compose.ui:ui-tooling:1.7.6")
-    implementation("androidx.activity:activity-compose:1.10.0")
-    implementation("androidx.lifecycle:lifecycle-service:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
-    implementation("com.louiscad.splitties:splitties-systemservices:3.0.0")
-    implementation("com.louiscad.splitties:splitties-views:3.0.0")
+    implementation(libs.androidx.appcompat)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material)
+    implementation(libs.compose.ui.tooling)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.splitties.systemservices)
+    implementation(libs.splitties.views)
+    implementation(libs.kotlinx.coroutines.android)
 }
 
 composeCompiler {
