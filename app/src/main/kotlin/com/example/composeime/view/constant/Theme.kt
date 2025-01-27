@@ -1,4 +1,4 @@
-package com.example.composeime.ui
+package com.example.composeime.view.constant
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

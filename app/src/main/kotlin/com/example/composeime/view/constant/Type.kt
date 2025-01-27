@@ -1,4 +1,4 @@
-package com.example.composeime.ui
+package com.example.composeime.view.constant
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

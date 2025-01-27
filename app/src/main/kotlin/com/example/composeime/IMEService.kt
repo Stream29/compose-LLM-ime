@@ -7,9 +7,7 @@ import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 
-class IMEService : LifecycleInputMethodService(),
-                   ViewModelStoreOwner,
-                   SavedStateRegistryOwner {
+class IMEService : LifecycleInputMethodService(), ViewModelStoreOwner, SavedStateRegistryOwner {
 
     override fun onCreateInputView(): View {
         val view = ComposeKeyboardView(this)
