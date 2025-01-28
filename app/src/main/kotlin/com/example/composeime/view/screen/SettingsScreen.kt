@@ -17,10 +17,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composeime.view.ComposeIMETheme
 import splitties.systemservices.inputMethodManager
 
+@Preview
 @Composable
 fun SettingsScreen() {
     ComposeIMETheme {

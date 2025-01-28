@@ -21,9 +21,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composeime.IMEService
 
+@Preview
 @Composable
 fun KeyboardKey(
-    keyboardKey: String,
+    keyboardKey: String = "A",
     modifier: Modifier = Modifier,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -35,7 +36,8 @@ fun KeyboardKey(
     ) {
         Text(
             text = keyboardKey,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .padding(2.dp)
                 .border(1.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(5.dp))
                 .clickable(interactionSource = interactionSource, indication = null) {
