@@ -3,13 +3,16 @@ package com.example.composeime
 import android.content.Context
 import android.view.View
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.AbstractComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.*
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.example.composeime.view.screen.KeyboardScreen
+import com.example.composeime.viewmodel.KeyBoardViewModel
 
 class IMEService : LifecycleInputMethodService(), ViewModelStoreOwner, SavedStateRegistryOwner {
 
@@ -48,6 +51,8 @@ class IMEService : LifecycleInputMethodService(), ViewModelStoreOwner, SavedStat
 class ComposeKeyboardView(context: Context) : AbstractComposeView(context) {
     @Composable
     override fun Content() {
-        KeyboardScreen()
+        val imeService = LocalContext.current as IMEService
+        val viewModel = remember { KeyBoardViewModel(imeService) }
+        KeyboardScreen(viewModel)
     }
 }
