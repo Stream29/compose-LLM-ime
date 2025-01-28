@@ -3,7 +3,7 @@ package com.example.composeime.model
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.lifecycle.viewModelScope
 import com.example.composeime.viewmodel.KeyBoardViewModel
 import kotlinx.coroutines.launch
+import splitties.systemservices.inputMethodManager
 
 class Key(
     val keyBoardViewModel: KeyBoardViewModel,
@@ -36,6 +37,25 @@ class Key(
         }
     }
 }
+
+@Suppress("FunctionName")
+fun KeyBoardViewModel.SpaceKey() =
+    AlphabetKey(" ", sizeStrategy = { Modifier.width(it * 7) })
+
+@Suppress("FunctionName")
+fun KeyBoardViewModel.EnterKey() =
+    AlphabetKey("\n", "↵", sizeStrategy = { Modifier.weight(1f) })
+
+@Suppress("FunctionName")
+fun KeyBoardViewModel.LanguageKey() =
+    Key(
+        keyBoardViewModel = this,
+        sizeStrategy = { Modifier.weight(1f) },
+        onPress = { inputMethodManager.showInputMethodPicker() },
+        onRelease = {},
+        onShift = {},
+        shownText = "\uD83C\uDF0D"
+    )
 
 @Suppress("FunctionName")
 fun KeyBoardViewModel.ShiftKey() =
@@ -65,24 +85,29 @@ fun KeyBoardViewModel.BackspaceKey() =
     )
 
 @Suppress("FunctionName")
-fun KeyBoardViewModel.AlphabetKey(name: String) =
-    Key(
-        keyBoardViewModel = this,
-        sizeStrategy = { Modifier.requiredWidth(it) },
-        onPress = { isPressed = true },
-        onRelease = { isPressed = false;onInput(shownText) },
-        onShift = { isShift ->
-            shownText = if (isShift) {
-                shownText.uppercase()
-            } else {
-                shownText.lowercase()
-            }
-        },
-        shownText = name
-    )
+fun KeyBoardViewModel.AlphabetKey(
+    text: String,
+    shownText: String = text,
+    sizeStrategy: RowScope.(Dp) -> Modifier = { Modifier.width(it) }
+) = Key(
+    keyBoardViewModel = this,
+    sizeStrategy = sizeStrategy,
+    onPress = { isPressed = true },
+    onRelease = { isPressed = false;onInput(text) },
+    onShift = { isShift ->
+        this.shownText = if (isShift) {
+            shownText.uppercase()
+        } else {
+            shownText.lowercase()
+        }
+    },
+    shownText = shownText
+)
 
 @Suppress("FunctionName")
 fun KeyBoardViewModel.AlphabetKeyList(row: String) =
     row.map { AlphabetKey(it.toString()) }
 
 operator fun Key.plus(list: List<Key>): List<Key> = listOf(this) + list
+
+operator fun Key.plus(other: Key): List<Key> = listOf(this, other)

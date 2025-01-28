@@ -15,7 +15,8 @@ class KeyBoardViewModel(val imeService: IMEService) : ViewModel() {
     val keyRows: List<List<Key>> = listOf(
         AlphabetKeyList("qwertyuiop"),
         AlphabetKeyList("asdfghjkl"),
-        ShiftKey() + AlphabetKeyList("zxcvbnm") + BackspaceKey()
+        ShiftKey() + AlphabetKeyList("zxcvbnm") + BackspaceKey(),
+        LanguageKey() + SpaceKey() + EnterKey()
     )
 
     fun onInput(content: String) {
