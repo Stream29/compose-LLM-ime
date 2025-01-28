@@ -20,6 +20,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composeime.view.ComposeIMETheme
+import splitties.systemservices.inputManager
 import splitties.systemservices.inputMethodManager
 
 @Preview
