@@ -25,16 +25,13 @@ import splitties.systemservices.inputMethodManager
 
 @Preview
 @Composable
-fun SettingsScreen() {
-    ComposeIMETheme {
-        Surface(color = MaterialTheme.colorScheme.background) {
-            Column {
-                Options()
-                Spacer(modifier = Modifier.weight(1f))
-            }
+fun SettingsScreen() = ComposeIMETheme {
+    Surface(color = MaterialTheme.colorScheme.background) {
+        Column {
+            Options()
+            Spacer(modifier = Modifier.weight(1f))
         }
     }
-    isSystemInDarkTheme()
 }
 
 @Composable
