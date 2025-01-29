@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.splitties.systemservices)
     implementation(libs.splitties.views)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kaml)
 }
 
 composeCompiler {

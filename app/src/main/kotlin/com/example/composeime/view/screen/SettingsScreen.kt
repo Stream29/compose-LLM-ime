@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.composeime.Global
 import com.example.composeime.view.ComposeIMETheme
 import com.example.composeime.viewmodel.SettingsViewModel
 import splitties.systemservices.inputMethodManager
@@ -55,6 +56,20 @@ fun SettingsScreen(
                     onClick = { inputMethodManager.showInputMethodPicker() }
                 ) {
                     Text(text = "Select IME")
+                }
+                Row {
+                    apiKeyTextFieldValue.component2()
+                    val (text, setValue) = apiKeyTextFieldValue
+                    TextField(
+                        value = text,
+                        onValueChange = setValue,
+                        label = { Text("ApiKey") }
+                    )
+                    Button(
+                        onClick = { Global.saveConfigs(Global.configs.copy(apiKey = text.text)) }
+                    ) {
+                        Text(text = "Save")
+                    }
                 }
                 val (text, setValue) = tryHereTextFieldValue
                 TextField(
