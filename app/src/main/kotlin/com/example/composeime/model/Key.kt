@@ -44,7 +44,7 @@ fun KeyBoardViewModel.SpaceKey() =
 
 @Suppress("FunctionName")
 fun KeyBoardViewModel.EnterKey() =
-    AlphabetKey("\n", "↵", sizeStrategy = { Modifier.weight(1f) })
+    AlphabetKey("\n", "⏎", sizeStrategy = { Modifier.weight(1f) })
 
 @Suppress("FunctionName")
 fun KeyBoardViewModel.LanguageKey() =
