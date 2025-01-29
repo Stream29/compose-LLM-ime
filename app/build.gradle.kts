@@ -62,6 +62,9 @@ dependencies {
     implementation(libs.splitties.systemservices)
     implementation(libs.splitties.views)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.langchain4j.dashscope)
+    implementation(libs.langchain4kt.api.langchain4j)
+    implementation(libs.langchain4kt.core)
     implementation(libs.kaml)
 }
 

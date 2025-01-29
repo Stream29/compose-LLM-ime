@@ -23,22 +23,43 @@ fun KeyboardScreen(
 ) = with(viewModel) {
     ComposeIMETheme {
         Column {
+            if (candidate != "")
+                Text(
+                    candidate,
+                    modifier = Modifier.background(color = MaterialTheme.colorScheme.surfaceVariant),
+                )
             Column(
                 modifier = Modifier
                     .background(MaterialTheme.colorScheme.surfaceContainer)
                     .fillMaxWidth()
                     .height(300.dp)
             ) {
+                TextField(
+                    value = inputBuffer,
+                    modifier = Modifier.fillMaxWidth(),
+                    onValueChange = {},
+                    readOnly = true,
+                )
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f)
                 ) {
-                    TextField(
-                        value = inputBuffer,
-                        onValueChange = {},
-                        readOnly = true,
-                    )
+                    Button(
+                        onClick = { onInput("") }
+                    ) {
+                        Text("Regenerate")
+                    }
+                    Button(
+                        onClick = { inputBuffer = "" }
+                    ) {
+                        Text("Clear")
+                    }
+                    Button(
+                        onClick = { inputBuffer = inputBuffer.dropLast(1) }
+                    ) {
+                        Text("←")
+                    }
                     Button(
                         onClick = { commit() }
                     ) {
