@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "com.example.composeime"
+rootProject.name = "io.github.stream29.composeime"
 include(":app")

@@ -1,4 +1,4 @@
-package com.example.composeime.model
+package io.github.stream29.composellmime.model
 
 import com.charleskorn.kaml.Yaml
 import kotlinx.serialization.Serializable

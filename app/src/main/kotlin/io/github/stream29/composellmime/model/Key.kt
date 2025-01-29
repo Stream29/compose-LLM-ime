@@ -1,4 +1,4 @@
-package com.example.composeime.model
+package io.github.stream29.composellmime.model
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.lifecycle.viewModelScope
-import com.example.composeime.viewmodel.KeyBoardViewModel
+import io.github.stream29.composellmime.viewmodel.KeyBoardViewModel
 import kotlinx.coroutines.launch
 import splitties.systemservices.inputMethodManager
 

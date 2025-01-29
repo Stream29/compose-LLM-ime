@@ -1,4 +1,4 @@
-package com.example.composeime.view.screen
+package io.github.stream29.composellmime.view.screen
 
 import android.content.Intent
 import android.provider.Settings.ACTION_INPUT_METHOD_SETTINGS
@@ -12,9 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.composeime.Global
-import com.example.composeime.view.ComposeIMETheme
-import com.example.composeime.viewmodel.SettingsViewModel
+import io.github.stream29.composellmime.Global
+import io.github.stream29.composellmime.view.ComposeIMETheme
+import io.github.stream29.composellmime.viewmodel.SettingsViewModel
 import splitties.systemservices.inputMethodManager
 
 @OptIn(ExperimentalMaterial3Api::class)

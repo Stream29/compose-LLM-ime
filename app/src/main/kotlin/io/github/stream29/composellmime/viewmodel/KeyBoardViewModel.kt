@@ -1,4 +1,4 @@
-package com.example.composeime.viewmodel
+package io.github.stream29.composellmime.viewmodel
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -6,9 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.composeime.Global
-import com.example.composeime.IMEService
-import com.example.composeime.model.*
+import io.github.stream29.composellmime.Global
+import io.github.stream29.composellmime.IMEService
+import io.github.stream29.composellmime.model.*
 import dev.langchain4j.model.dashscope.QwenChatModel
 import io.github.stream29.langchain4kt.api.langchain4j.Langchain4jChatApiProvider
 import io.github.stream29.langchain4kt.core.asRespondent

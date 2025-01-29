@@ -1,4 +1,4 @@
-package com.example.composeime
+package io.github.stream29.composellmime
 
 import android.content.Context
 import android.view.View
@@ -11,8 +11,8 @@ import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
-import com.example.composeime.view.screen.KeyboardScreen
-import com.example.composeime.viewmodel.KeyBoardViewModel
+import io.github.stream29.composellmime.view.screen.KeyboardScreen
+import io.github.stream29.composellmime.viewmodel.KeyBoardViewModel
 
 class IMEService : LifecycleInputMethodService(), ViewModelStoreOwner, SavedStateRegistryOwner {
 

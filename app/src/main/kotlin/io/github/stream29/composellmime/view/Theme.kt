@@ -1,4 +1,4 @@
-package com.example.composeime.view
+package io.github.stream29.composellmime.view
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -18,7 +18,7 @@ android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.example.composeime"
+        applicationId = "io.github.stream29.composeime"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -35,7 +35,7 @@ android {
     buildFeatures {
         compose = true
     }
-    namespace = "com.example.composeime"
+    namespace = "io.github.stream29.composeime"
 
     packaging {
         resources {

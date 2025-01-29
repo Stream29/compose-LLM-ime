@@ -1,10 +1,10 @@
-package com.example.composeime.viewmodel
+package io.github.stream29.composellmime.viewmodel
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
-import com.example.composeime.Global
+import io.github.stream29.composellmime.Global
 
 @Stable
 class SettingsViewModel(

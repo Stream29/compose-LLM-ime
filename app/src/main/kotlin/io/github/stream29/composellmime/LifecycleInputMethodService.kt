@@ -1,4 +1,4 @@
-package com.example.composeime
+package io.github.stream29.composellmime
 
 import android.content.Intent
 import android.inputmethodservice.InputMethodService

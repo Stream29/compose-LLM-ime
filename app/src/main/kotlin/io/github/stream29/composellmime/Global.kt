@@ -1,8 +1,8 @@
-package com.example.composeime
+package io.github.stream29.composellmime
 
-import com.example.composeime.model.Configs
-import com.example.composeime.model.fromFile
-import com.example.composeime.model.saveTo
+import io.github.stream29.composellmime.model.Configs
+import io.github.stream29.composellmime.model.fromFile
+import io.github.stream29.composellmime.model.saveTo
 import java.io.File
 
 object Global {

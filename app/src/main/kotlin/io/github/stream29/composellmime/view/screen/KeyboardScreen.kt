@@ -1,4 +1,4 @@
-package com.example.composeime.view.screen
+package io.github.stream29.composellmime.view.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.composeime.IMEService
-import com.example.composeime.view.ComposeIMETheme
-import com.example.composeime.view.component.KeyboardKey
-import com.example.composeime.viewmodel.KeyBoardViewModel
+import io.github.stream29.composellmime.IMEService
+import io.github.stream29.composellmime.view.ComposeIMETheme
+import io.github.stream29.composellmime.view.component.KeyboardKey
+import io.github.stream29.composellmime.viewmodel.KeyBoardViewModel
 
 @Preview
 @Composable
