@@ -22,6 +22,7 @@ splitties-systemservices = "3.0.0"
 [libraries]
 langchain4j-dashscope = { module = "dev.langchain4j:langchain4j-dashscope", version.ref = "langchain4j" }
 langchain4kt-core = { module = "io.github.stream29:langchain4kt-core", version.ref = "langchain4kt" }
+langchain4kt-utils = { module = "io.github.stream29:langchain4kt-utils", version.ref = "langchain4kt" }
 langchain4kt-api-langchain4j = { module = "io.github.stream29:langchain4kt-api-langchain4j", version.ref = "langchain4kt" }
 json-schema-generator = { module = "io.github.stream29:json-schema-generator", version.ref = "json-schema-generator"}
 langchain4kt-streaming = { module = "io.github.stream29:langchain4kt-streaming", version.ref = "langchain4kt" }

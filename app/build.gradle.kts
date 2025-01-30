@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.langchain4j.dashscope)
     implementation(libs.langchain4kt.api.langchain4j)
     implementation(libs.langchain4kt.core)
+    implementation(libs.langchain4kt.utils)
     implementation(libs.json.schema.generator)
     implementation(libs.kaml)
     implementation(libs.streamlin)
