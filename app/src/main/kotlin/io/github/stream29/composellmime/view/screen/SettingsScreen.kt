@@ -58,7 +58,6 @@ fun SettingsScreen(
                     Text(text = "Select IME")
                 }
                 Row {
-                    apiKeyTextFieldValue.component2()
                     val (text, setValue) = apiKeyTextFieldValue
                     TextField(
                         value = text,
