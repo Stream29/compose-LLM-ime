@@ -69,8 +69,3 @@ dependencies {
     implementation(libs.kaml)
     implementation(libs.streamlin)
 }
-
-composeCompiler {
-    reportsDestination = layout.buildDirectory.dir("compose_compiler")
-    stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
-}
