@@ -10,16 +10,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.lifecycle.viewModelScope
+import io.github.stream29.composellmime.LongPressConfig
 import io.github.stream29.composellmime.viewmodel.KeyBoardViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import splitties.systemservices.inputMethodManager
 
 class Key(
     val keyBoardViewModel: KeyBoardViewModel,
     val sizeStrategy: RowScope.(baseWidth: Dp) -> Modifier,
-    val onPress: Key.() -> Unit,
-    val onRelease: Key.() -> Unit,
-    val onShift: Key.(Boolean) -> Unit,
+    val onPress: Key.() -> Unit = {},
+    val onLongPress: Key.() -> Unit = {},
+    val onRelease: Key.() -> Unit = {},
+    val onShift: Key.(Boolean) -> Unit = {},
     shownText: String,
 ) {
     val interactionSource = MutableInteractionSource()
@@ -28,10 +32,25 @@ class Key(
 
     init {
         keyBoardViewModel.viewModelScope.launch {
+            var currentJob: Job? = null
             interactionSource.interactions.collect {
-                when (it) {
-                    is PressInteraction.Press -> onPress()
-                    is PressInteraction.Release -> onRelease()
+                if (it is PressInteraction.Press) {
+                    onPress()
+                    currentJob = launch {
+                        delay(LongPressConfig.wait)
+                        var count: Long = LongPressConfig.frac
+                        while (true) {
+                            onLongPress()
+                            delay(50 * LongPressConfig.frac / count + 1)
+                            count++
+                        }
+                    }
+                    return@collect
+                } else {
+                    currentJob?.cancel()
+                }
+                if (it is PressInteraction.Release) {
+                    onRelease()
                 }
             }
         }
@@ -52,8 +71,6 @@ fun KeyBoardViewModel.LanguageKey() =
         keyBoardViewModel = this,
         sizeStrategy = { Modifier.weight(1f) },
         onPress = { inputMethodManager.showInputMethodPicker() },
-        onRelease = {},
-        onShift = {},
         shownText = "\uD83C\uDF0D"
     )
 
@@ -62,14 +79,12 @@ fun KeyBoardViewModel.ShiftKey() =
     Key(
         keyBoardViewModel = this,
         sizeStrategy = { Modifier.weight(1f) },
-        onPress = {},
         onRelease = {
             isShift = !isShift
             viewModelScope.launch {
                 keyRows.asSequence().map { it.asSequence() }.flatten().forEach { it.onShift(it, isShift) }
             }
         },
-        onShift = {},
         shownText = "↑"
     )
 
@@ -78,9 +93,8 @@ fun KeyBoardViewModel.BackspaceKey() =
     Key(
         keyBoardViewModel = this,
         sizeStrategy = { Modifier.weight(1f) },
-        onPress = { imeService.currentInputConnection.deleteSurroundingText(1, 0) },
-        onRelease = {},
-        onShift = {},
+        onPress = { onBackspace() },
+        onLongPress = { onBackspace() },
         shownText = "←",
     )
 
@@ -93,6 +107,7 @@ fun KeyBoardViewModel.AlphabetKey(
     keyBoardViewModel = this,
     sizeStrategy = sizeStrategy,
     onPress = { isPressed = true },
+    onLongPress = { onInput(text) },
     onRelease = { isPressed = false;onInput(text) },
     onShift = { isShift ->
         this.shownText = if (isShift) {

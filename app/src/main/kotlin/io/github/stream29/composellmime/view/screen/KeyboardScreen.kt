@@ -9,8 +9,10 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import io.github.stream29.composellmime.IMEService
 import io.github.stream29.composellmime.view.ComposeIMETheme
 import io.github.stream29.composellmime.view.component.KeyboardKey
@@ -34,12 +36,6 @@ fun KeyboardScreen(
                     .fillMaxWidth()
                     .height(300.dp)
             ) {
-                TextField(
-                    value = inputBuffer,
-                    modifier = Modifier.fillMaxWidth(),
-                    onValueChange = {},
-                    readOnly = true,
-                )
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -48,22 +44,25 @@ fun KeyboardScreen(
                     Button(
                         onClick = { onInput("") }
                     ) {
-                        Text("Regenerate")
+                        Text(
+                            text = "⟲",
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.W900
+                        )
                     }
+                    TextField(
+                        value = inputBuffer,
+                        modifier = Modifier.weight(1f),
+                        onValueChange = {},
+                    )
                     Button(
-                        onClick = { inputBuffer = "" }
+                        onClick = { commitAndClear() }
                     ) {
-                        Text("Clear")
-                    }
-                    Button(
-                        onClick = { inputBuffer = inputBuffer.dropLast(1) }
-                    ) {
-                        Text("←")
-                    }
-                    Button(
-                        onClick = { commit() }
-                    ) {
-                        Text("Commit")
+                        Text(
+                            text = "✓",
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.Bold,
+                        )
                     }
                 }
                 val keyWidth = LocalConfiguration.current.screenWidthDp.dp / 10

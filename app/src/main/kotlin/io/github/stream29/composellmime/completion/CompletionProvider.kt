@@ -10,7 +10,7 @@ class CompletionProvider(
     suspend fun singleCompletion(context: Context): String {
         with(context) {
             return singleRespondent.chat(
-                "上文为：${prev}，用户尝试键盘输入：$inputBuffer，请猜测用户输入的拼音对应的汉字或者词语、短语"
+                "上文为：${prev}，用户在键盘按下按键：$inputBuffer，请猜测用户想要输入的内容"
             )
         }
     }
