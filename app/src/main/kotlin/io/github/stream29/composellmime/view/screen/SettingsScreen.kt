@@ -66,7 +66,7 @@ fun SettingsScreen(
                         label = { Text("ApiKey") }
                     )
                     Button(
-                        onClick = { Global.saveConfigs(Global.configs.copy(apiKey = text.text)) }
+                        onClick = {  }
                     ) {
                         Text(text = "Save")
                     }

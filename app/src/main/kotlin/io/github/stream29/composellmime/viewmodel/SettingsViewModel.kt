@@ -11,4 +11,7 @@ class SettingsViewModel(
 ) : ViewModel() {
     val tryHereTextFieldValue = mutableStateOf(TextFieldValue("Try here"))
     val apiKeyTextFieldValue = mutableStateOf(TextFieldValue(Global.configs.apiKey.toString()))
+    fun saveConfigs() {
+        Global.saveConfigs(Global.configs.copy(apiKey = apiKeyTextFieldValue.value.text))
+    }
 }

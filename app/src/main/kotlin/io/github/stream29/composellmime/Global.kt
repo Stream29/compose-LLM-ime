@@ -13,4 +13,8 @@ object Global {
     val configsFile by configsFileProperty
     val configsProperty = configsFileProperty.subproperty { Configs.fromFile(it) }
     val configs by configsProperty
+    fun saveConfigs(configs: Configs) {
+        configs.saveTo(configsFile)
+        storage = storage
+    }
 }
