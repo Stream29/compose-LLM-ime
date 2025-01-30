@@ -51,7 +51,7 @@ class IMEService : LifecycleInputMethodService(), ViewModelStoreOwner, SavedStat
 class ComposeKeyboardView(context: Context) : AbstractComposeView(context) {
     @Composable
     override fun Content() {
-        Global._storage = LocalContext.current.getExternalFilesDir(null)!!
+        Global.storage = LocalContext.current.getExternalFilesDir(null)!!
         val imeService = LocalContext.current as IMEService
         val viewModel = remember { KeyBoardViewModel(imeService) }
         KeyboardScreen(viewModel)

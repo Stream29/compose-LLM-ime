@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Global._storage = LocalContext.current.getExternalFilesDir(null)!!
+            Global.storage = LocalContext.current.getExternalFilesDir(null)!!
             val viewModel = remember { SettingsViewModel() }
             SettingsScreen(viewModel)
         }
